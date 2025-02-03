@@ -30,7 +30,7 @@ connectDB();
 
 
 
-app.get('/', isLoggedIn, async(req, res) => {
+app.get('/', async(req, res) => {
     const existingUser = await getUser(req.user.userId);
     
     res.render('Index', {}, (err, html) => {
