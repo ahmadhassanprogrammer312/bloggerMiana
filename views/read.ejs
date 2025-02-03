@@ -1,0 +1,517 @@
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1bb566" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./stylebtn.css">
+    
+    <script
+      src="https://kit.fontawesome.com/24e1c423a2.js"
+      crossorigin="anonymous"
+    ></script>
+<style>
+  .main-header {
+    margin: 5px 15px 5px 15px !important;
+    direction: rtl;
+    width: 100% !important;
+    /* margin: 15px !important; */
+  }
+  .header-right{
+    width: 450px;
+        direction: rtl;
+        display: flex;
+        flex-direction: column;
+        padding-top: 11px;
+        line-height: 20px;
+  }
+
+  .mainBar{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    direction: rtl;
+    font-family: 'Jameel Noori Nastaleeq';
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    border-radius: 10px;
+    box-shadow: 6.8px 13.6px 13.6px hsl(0deg 0% 0% / 0.29);
+    /* box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
+    /* box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px; */
+    /* box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px; */
+    /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+  }
+  .rightBar{
+    width: 33%;
+    /* background-color: red; */
+    
+    /* align-items: flex-start; */
+    /* justify-content: center; */
+  }
+  .rightBar h2, h3{
+    text-align: start;
+    white-space: nowrap; /* مواد کو ایک ہی لائن میں رکھتا ہے */
+      overflow: hidden; /* اضافی مواد کو چھپاتا ہے */
+      text-overflow: ellipsis; /* مواد کے آخر میں "..." دکھاتا ہے */
+  }
+
+  .centerBar{
+    width: 33%;
+    /* background-color: green; */
+    
+  }
+  /* .paginationSec p{
+    /* margin-top: 5px; */
+    /* align-self: center !important; */
+    /* justify-self: center !important; */
+  /* } */ 
+  .paginationSec{
+    align-items: center !important;
+    /* font-size: 25px; */
+  }
+  .slidecontainer {
+  width: 100%;
+}
+  .paginationSec h6, input{
+    font-size: 22px;
+    text-align: center;
+  }
+  .leftBar{
+    width: 34%;
+    /* background-color: blue; */
+  }
+  .icon-space{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+</style>
+<div class="main w-100 p-2">
+
+  <div class="mainBar w-100 ">
+    
+    <div class="rightBar px-3">
+      <div>
+        <!-- <img src="" alt="" width="100%" height="100%"> -->
+      </div>
+      <h2>اسلام کا معاشی نظام تعارف ضرورت اہمیت اور جدید تقاضے</h2>
+      <h3>ڈاکٹر خالد محمود علوی</h3>
+    </div>
+    <div class="centerBar d-flex flex-row  align-items-center justify-content-between ">
+      <div class="me-2">
+        <button class="glow-on-hover " id="preBtn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="paginationSec d-flex flex-row justify-content-between  w-100 mr-2 gap-2">
+        <input type="number" id="currentPageInput" name="currentPage" class="form-control text-center" style="width: 50px" value="<%= currentPage %>"/>
+        <div class="slidecontainer  ">
+          <input type="range"  value="1" id="slider" class="w-100">
+        </div>
+        <input type="number" id="totalPagesInput" name="currentPage" class="form-control text-center" style="width: 50px" value="<%= totalPages %>" disabled/>
+      </div>
+      <div class="mx-2">
+        <button class="glow-on-hover " id="nextBtn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div> 
+    </div>
+    <div class="leftBar align-items-center justify-content-center d-flex flex-column ">
+      <div class="d-flex flex-row pb-1 align-items-center justify-content-start gap-2">
+        <!-- Start Copy Button -->
+        <div class="dropdown-center">
+          <button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            کاپی کریں <span class="icon-space"></span>  <i class="fas fa-copy"></i><span class="icon-space"></span>
+          </button>
+          <ul class="dropdown-menu" style="direction: rtl; text-align: right; width: 30px;">
+            <li><a class="dropdown-item" href="#">مکمل صفحہ</a></li>
+            <li><a class="dropdown-item" href="#">صفحہ کا حوالہ</a></li>
+            <li><a class="dropdown-item" href="#">کتاب کا حوالہ</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">کتاب کا تعارف</a></li>
+            <li><a class="dropdown-item" href="#">مصنف کا تعارف</a></li>
+          </ul>
+        </div>
+        <!-- End Copy Button -->
+
+        <!-- Start Download Button -->
+        <div class="dropdown-center">
+          <button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            ڈاؤنلوڈ کریں <span class="icon-space"></span>  <i class="fas fa-download"></i><span class="icon-space"></span>
+          </button>
+          <ul class="dropdown-menu" style="direction: rtl; text-align: right; width: 30px;">
+            <li><a class="dropdown-item" href="#">موجودہ صفحہ ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">موجودہ صفحہ پی ڈی ایف فائل</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">مکمل کتاب ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">مکمل کتاب پی ڈی ایف فائل</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">فہرست ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">فہرست پی ڈی ایف فائل</a></li>
+          </ul>
+        </div>
+        <!-- End Download Button -->
+
+        <div class="dropdown-center">
+          <button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            ڈاؤنلوڈ کریں <span class="icon-space"></span>  <i class="fas fa-download"></i><span class="icon-space"></span>
+          </button>
+          <ul class="dropdown-menu" style="direction: rtl; text-align: right; width: 30px;">
+            <li><a class="dropdown-item" href="#">موجودہ صفحہ ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">موجودہ صفحہ پی ڈی ایف فائل</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">مکمل کتاب ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">مکمل کتاب پی ڈی ایف فائل</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">فہرست ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">فہرست پی ڈی ایف فائل</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div  class="d-flex flex-row p-0 align-items-center justify-content-start gap-2">
+        <div class="dropdown-center">
+          <button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            ڈاؤنلوڈ کریں <span class="icon-space"></span>  <i class="fas fa-download"></i><span class="icon-space"></span>
+          </button>
+          <ul class="dropdown-menu" style="direction: rtl; text-align: right; width: 30px;">
+            <li><a class="dropdown-item" href="#">موجودہ صفحہ ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">موجودہ صفحہ پی ڈی ایف فائل</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">مکمل کتاب ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">مکمل کتاب پی ڈی ایف فائل</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">فہرست ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">فہرست پی ڈی ایف فائل</a></li>
+          </ul>
+        </div>
+        <div class="dropdown-center">
+          <button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            ڈاؤنلوڈ کریں <span class="icon-space"></span>  <i class="fas fa-download"></i><span class="icon-space"></span>
+          </button>
+          <ul class="dropdown-menu" style="direction: rtl; text-align: right; width: 30px;">
+            <li><a class="dropdown-item" href="#">موجودہ صفحہ ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">موجودہ صفحہ پی ڈی ایف فائل</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">مکمل کتاب ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">مکمل کتاب پی ڈی ایف فائل</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">فہرست ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">فہرست پی ڈی ایف فائل</a></li>
+          </ul>
+        </div>
+        <div class="dropdown-center">
+          <button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            ڈاؤنلوڈ کریں <span class="icon-space"></span>  <i class="fas fa-download"></i><span class="icon-space"></span>
+          </button>
+          <ul class="dropdown-menu" style="direction: rtl; text-align: right; width: 30px;">
+            <li><a class="dropdown-item" href="#">موجودہ صفحہ ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">موجودہ صفحہ پی ڈی ایف فائل</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">مکمل کتاب ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">مکمل کتاب پی ڈی ایف فائل</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">فہرست ورڈ فائل</a></li>
+            <li><a class="dropdown-item" href="#">فہرست پی ڈی ایف فائل</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- main header -->
+
+  <!-- <div class="main-header d-flex flex-row  align-items-center justify-content-between bg-light-subtle rounded-xl rounded-3 px-5">
+
+    <div class="header-right align-items-start" style="font-family: 'Jameel Noori Nastaleeq'; font-size: 25px">
+      <p><strong>اسلام کا معاشی نظام تعارف ضرورت اہمیت اور جدید تقاضے</strong></p>
+      <p>علامۃ الدھر حضرت مولانا احمد حسن ملتانی</p>
+    </div>
+    
+    <div class="header-center d-flex flex-row  align-items-center justify-content-center">
+      <div class="me-2">
+        <button class="btn btn-primary">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="mr-2 d-flex flex-row  gap-2">
+        <p class="">of <%= totalPages %></p>
+        <input type="number" id="currentPage" name="currentPage" class="form-control text-center" style="width: 70px" value="<%= currentPage %>"/>
+      </div>
+      <div class="me-2">
+        <button class="btn btn-primary">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div> 
+    </div>
+
+    <div class="header-left ">
+      <div
+        class="me-2 d-flex flex-row align-items-center justify-content-between gap-2"
+      >
+        <label for="currentPage" class="form-label">Jump to page : </label>
+        <input
+          type="number"
+          id="currentPage"
+          name="currentPage"
+          class="form-control text-center"
+          value="<%= currentPage %>"
+          style="width: 80px"
+        />
+      </div>
+    </div>
+    
+  </div> -->
+
+  <!-- main data viewer -->
+
+  <div class="d-flex flex-row mx-5 gap-2">
+    <div
+      class="rounded-2xl rounded-4 my-3 bg-warning-subtle p-5"
+      style="width: 30%; box-shadow: 0 4px 8px rgba(54, 54, 57, 0.5);"
+    >
+      <p>content</p>
+    </div>
+    <div
+      class="rounded-2xl rounded-5 my-3 bg-warning-subtle"
+      style="width: 70%; height: 80vh; box-shadow: 0 4px 8px rgba(54, 54, 57, 0.5)"
+    >
+      <p class="p-5">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+        ducimus dolor ipsam error earum aliquid excepturi fugit repellendus
+        enim sint tempore culpa, impedit, minima explicabo laudantium,
+        veritatis temporibus quis dolores sit voluptates molestias corporis
+        esse quod? Iure voluptatibus in est.
+      </p>
+    </div>
+  </div>
+
+
+
+  <style>
+    .bottomBar {
+    padding: 5px;
+    direction: rtl;
+    /* background-color: blue; */
+    }
+  </style>
+  <div class="bottomBar w-75 ">
+    <div class="bottomCenterBar d-flex flex-row align-items-center justify-content-between">
+      <div class="me-2">
+        <button class="glow-on-hover" id="bottomPreBtn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="paginationSec d-flex flex-row justify-content-between w-100 mr-2 gap-2">
+        <input type="number" id="bottomCurrentPageInput" name="currentPage" class="form-control text-center" style="width: 50px" value="<%= currentPage %>" />
+        <div class="slidecontainer">
+          <input type="range" value="1" id="bottomSlider" class="w-100">
+        </div>
+        <input type="number" id="bottomTotalPagesInput" name="currentPage" class="form-control text-center" style="width: 50px" value="<%= totalPages %>" disabled />
+      </div>
+      <div class="mx-2">
+        <button class="glow-on-hover" id="bottomNextBtn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+
+    <script>
+      
+      // Top pagination controls
+const topCurrentPageInput = document.getElementById("currentPageInput");
+const topTotalPagesInput = document.getElementById("totalPagesInput");
+const topSlider = document.getElementById("slider");
+const topPrevBtn = document.getElementById("preBtn");
+const topNextBtn = document.getElementById("nextBtn");
+
+// Bottom pagination controls
+const bottomCurrentPageInput = document.getElementById("bottomCurrentPageInput");
+const bottomTotalPagesInput = document.getElementById("bottomTotalPagesInput");
+const bottomSlider = document.getElementById("bottomSlider");
+const bottomPrevBtn = document.getElementById("bottomPreBtn");
+const bottomNextBtn = document.getElementById("bottomNextBtn");
+
+let totalPages = parseInt(topTotalPagesInput.value);
+let currentPage = parseInt(topCurrentPageInput.value);
+
+// Update all controls (top and bottom) when the current page or total pages change
+function updateControls() {
+  // Sync top controls
+  topCurrentPageInput.value = currentPage;
+  topSlider.value = currentPage;
+  topSlider.max = totalPages;
+  topSlider.min = 1;
+  topPrevBtn.disabled = currentPage === 1;
+  topNextBtn.disabled = currentPage === totalPages;
+
+  // Sync bottom controls
+  bottomCurrentPageInput.value = currentPage;
+  bottomSlider.value = currentPage;
+  bottomSlider.max = totalPages;
+  bottomSlider.min = 1;
+  bottomPrevBtn.disabled = currentPage === 1;
+  bottomNextBtn.disabled = currentPage === totalPages;
+}
+
+// Sync top slider with currentPage input
+topSlider.addEventListener("input", () => {
+  currentPage = parseInt(topSlider.value);
+  updateControls();
+});
+
+// Sync bottom slider with currentPage input
+bottomSlider.addEventListener("input", () => {
+  currentPage = parseInt(bottomSlider.value);
+  updateControls();
+});
+
+// Sync top currentPage input with slider
+topCurrentPageInput.addEventListener("input", () => {
+  const newPage = parseInt(topCurrentPageInput.value);
+  if (newPage >= 1 && newPage <= totalPages) {
+    currentPage = newPage;
+    updateControls();
+  } else {
+    topCurrentPageInput.value = currentPage; // Reset to the last valid value
+  }
+});
+
+// Sync bottom currentPage input with slider
+bottomCurrentPageInput.addEventListener("input", () => {
+  const newPage = parseInt(bottomCurrentPageInput.value);
+  if (newPage >= 1 && newPage <= totalPages) {
+    currentPage = newPage;
+    updateControls();
+  } else {
+    bottomCurrentPageInput.value = currentPage; // Reset to the last valid value
+  }
+});
+
+// Adjust slider max when totalPages changes (top and bottom inputs)
+topTotalPagesInput.addEventListener("input", () => {
+  totalPages = parseInt(topTotalPagesInput.value);
+  updateControls();
+});
+
+bottomTotalPagesInput.addEventListener("input", () => {
+  totalPages = parseInt(bottomTotalPagesInput.value);
+  updateControls();
+});
+
+// Top Previous button functionality
+topPrevBtn.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    updateControls();
+  }
+});
+
+// Bottom Previous button functionality
+bottomPrevBtn.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    updateControls();
+  }
+});
+
+// Top Next button functionality
+topNextBtn.addEventListener("click", () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    updateControls();
+  }
+});
+
+// Bottom Next button functionality
+bottomNextBtn.addEventListener("click", () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    updateControls();
+  }
+});
+
+// Initialize controls
+updateControls();
+
+
+   
+    </script>
+    
+    <!-- Pagination right left buttons styling -->
+    <style>
+  .glow-on-hover {
+  width: 35px;
+  height: 35px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #007bff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #007bff
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background: #111; */
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+    </style>
+    

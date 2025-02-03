@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Froala Editor with Custom Fonts</title>
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Itim&family=Noto+Nastaliq+Urdu:wght@400..700&display=swap" rel="stylesheet">
+
+    <!-- Froala Editor CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        /* Amiri */
+        .amiri-regular {
+            font-family: "Amiri", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .amiri-bold {
+            font-family: "Amiri", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .amiri-regular-italic {
+            font-family: "Amiri", serif;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .amiri-bold-italic {
+            font-family: "Amiri", serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        /* Itim */
+        .itim-regular {
+            font-family: "Itim", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* Noto Nastaliq Urdu */
+        .noto-nastaliq-urdu {
+            font-family: "Noto Nastaliq Urdu", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div class="d-flex justify-content-end">
+            <button id="submit-btn" class="btn btn-primary mb-3 justify-self-left">Post</button>
+        </div>
+        <div id="froala-title-editor"></div>
+        <div class="form-floating mb-3 mt-3">
+            <input type="text" class="form-control" id="floatingInput"  placeholder="Feature Image Url">
+            <label for="floatingInput">Feature Image Url</label>
+        </div>
+        <div id="froala-editor"></div>
+    </div>
+
+    <!-- Froala Editor JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        new FroalaEditor('#froala-title-editor', {
+            fontFamily: {
+                "Amiri, serif": "Amiri",
+                "Itim, serif": "Itim",
+                "Noto Nastaliq Urdu, serif": "Noto Nastaliq Urdu",
+                "Arial, Helvetica, sans-serif": "Arial",
+                "Courier New, Courier, monospace": "Courier New"
+            },
+            fontFamilyDefaultSelection: "Noto Nastaliq Urdu", // Default font
+            height: 80,
+            placeholderText: "Write your post title here...",
+            toolbarButtons: [
+                'fontFamily', 'align', 'fontSize'
+                // Removed the image button from the toolbar
+            ],
+            
+        });
+        new FroalaEditor('#froala-editor', {
+            fontFamily: {
+                "Amiri, serif": "Amiri",
+                "Itim, serif": "Itim",
+                "Noto Nastaliq Urdu, serif": "Noto Nastaliq Urdu",
+                "Arial, Helvetica, sans-serif": "Arial",
+                "Courier New, Courier, monospace": "Courier New"
+            },
+            fontFamilyDefaultSelection: "Noto Nastaliq Urdu", // Default font
+            height: 450,
+            placeholderText: "Write your post content here...",
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const editorTitle = new FroalaEditor('#froala-title-editor');
+            const editor = new FroalaEditor('#froala-editor');
+    
+            document.querySelector("#submit-btn").addEventListener("click", function () {
+                const titleContent = editorTitle.html.get(); // Get the editor's content
+                const content = editor.html.get(); // Get the editor's content
+                const featureImageUrl = document.querySelector('#floatingInput').value; // Get the Feature Image URL
+
+                fetch('/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ content: content, title: titleContent, featureImageUrl:featureImageUrl }),
+                })
+                    .then(response => response.json())
+                    .then(data => console.log("Success:", data))
+                    .catch(error => console.error("Error:", error));
+            });
+        });
+    </script>
+</body>
+
+</html>

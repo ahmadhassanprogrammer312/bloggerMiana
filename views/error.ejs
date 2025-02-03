@@ -1,0 +1,54 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <style>
+        body, html {
+            height: 100%;
+        }
+        .bg {
+            background: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+        }
+        .error-template {
+            padding: 40px 15px;
+        }
+        .error-actions {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .error-actions .btn {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body> -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="bg-light rounded my-5 px-3 py-5">
+        <div class="error-template justify-content-center align-items-center d-flex flex-column">
+            <h1>Oops!</h1>
+            <h2>404 Not Found</h2>
+            <div class="error-details">
+                <%=message%>
+            </div>
+            <div class="error-actions mt-3">
+                <a href="/" class="btn btn-primary btn-lg">
+                    <span class="glyphicon glyphicon-home"></span>
+                    Take Me Home 
+                </a>
+                <a href="mailto:support@example.com" class="btn btn-secondary btn-lg">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    Contact Support 
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- </body>
+</html> -->

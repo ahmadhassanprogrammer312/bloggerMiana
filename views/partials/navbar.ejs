@@ -1,0 +1,81 @@
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top w-100">
+        <a class="navbar-brand" href="/">HSN Community</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item <%= activePage === 'home' ? 'active' : '' %>">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item <%= activePage === 'error' ? 'active' : '' %>">
+                    <a class="nav-link" href="/digital-library">Digital Library</a>
+                </li>
+                <li class="nav-item <%= activePage === 'about' ? 'active' : '' %>">
+                    <a class="nav-link" href="/posts">Blog</a>
+                </li>
+                <li class="nav-item <%= activePage === 'about' ? 'active' : '' %>">
+                    <a class="nav-link" href="/courses">Courses</a>
+                </li>
+                <li class="nav-item <%= activePage === 'about' ? 'active' : '' %>">
+                    <a class="nav-link" href="/tutorials">Tutorials</a>
+                </li>
+                
+                <li class="nav-item <%= activePage === 'about' ? 'active' : '' %>">
+                    <a class="nav-link" href="/notes">Notes</a>
+                </li>
+                <li class="nav-item <%= activePage === 'about' ? 'active' : '' %>">
+                    <a class="nav-link" href="/work-with-us">Work with us</a>
+                </li>
+                <li class="nav-item <%= activePage === 'about' ? 'active' : '' %>">
+                    <a class="nav-link" href="/jobs-portal">Jobs Portal</a>
+                </li>
+                <li class="nav-item <%= activePage === 'contact' ? 'active' : '' %>">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item <%= activePage === 'about' ? 'active' : '' %>">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                
+            </ul>
+            <ul class="navbar-nav">
+                <% if (user && user.userfullName) { %>
+                    <li class="nav-item dropdown" id="navbarDropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src=<%= user.profilePic %> alt="Profile Picture" class="rounded-circle" width="30" height="30" > <%= user.userfullName || 'User' %>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" >
+                            <!-- <a class="dropdown-item" href="/profile">Profile</a>
+                            <a class="dropdown-item" href="/profile2">Profile 2</a> -->
+                            <a class="dropdown-item" href="/profile3">Profile</a>
+                            <% if(user && user.role == "admin") {%>
+                                <a class="dropdown-item" href="/editor">Create Post</a>
+                                <a class="dropdown-item" href="/addBook">Create Book</a>
+                                <a class="dropdown-item" href="/addBookData">Add Book Data</a>
+                            <%}%>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                            
+                        </div>
+                    </li>
+                <% } else { %>
+                    <li class="nav-item <%= activePage === 'login' ? 'active' : '' %>">
+                        <a class="nav-link" href="/login-page">Login</a>
+                    </li>
+                    <li class="nav-item <%= activePage === 'register' ? 'active' : '' %>">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    
