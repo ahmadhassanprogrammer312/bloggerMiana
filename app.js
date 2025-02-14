@@ -37,7 +37,7 @@ app.get('/', async(req, res) => {
         if (err) {
             return res.status(500).send(err.message);
         }
-        res.render('layout', { title: 'Home', activePage: 'Index', user: existingUser, body: html });
+        res.render('layout', { title: 'Home', activePage: 'Index', user: {}, body: html });
     });
 });
 app.get('/login-page', (req, res) => {
