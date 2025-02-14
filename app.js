@@ -26,12 +26,12 @@ app.set('views', './views');
 
 
 
-connectDB();
+// connectDB();
 
 
 
 app.get('/', async(req, res) => {
-    // const existingUser = await getUser(req.user.userId);
+    
     
     res.render('Index', {}, (err, html) => {
         if (err) {
