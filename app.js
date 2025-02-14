@@ -33,7 +33,7 @@ app.set('views', './views');
 app.get('/', async(req, res) => {
     
     
-    res.render('Index', {}, (err, html) => {
+    res.render('Index', (err, html) => {
         if (err) {
             return res.status(500).send(err.message);
         }
